@@ -27,4 +27,4 @@ Secondly, as of now the test will fail. This is good, as in TDD we like to speci
 
 # Submission
 
-Once you're done 
+Once you're done, push your code to your repo and send me a pull request.
