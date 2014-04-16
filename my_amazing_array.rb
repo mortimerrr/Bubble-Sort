@@ -17,6 +17,44 @@ class Array
   # elements are in order
   #
   def bubble_sort
-  	# puts self.join(",")
+    stack = []
+    x = 0
+    y = 1
+    number_of_swaps = 1
+
+    while number_of_swaps > 0
+
+      number_of_swaps = 0
+      x = 0
+      y = 1
+
+      while x < (self.length - 1)  # run the below code until you reach the end of the array
+        
+        if self[x] > self[y]
+          # I need to swap the two numbers
+          stack.push(self[x], self[y])
+          self[x] = stack.pop
+          self[y] = stack.pop
+          x += 1
+          y += 1
+          number_of_swaps += 1  
+        else
+          # otherwise move on
+          x += 1
+          y += 1
+        end 
+        
+        # puts self.join(",")
+
+      end
+
+        # puts "we've reached the end of the array"
+
+    end
+
+    return self
+
   end
+
 end
+
