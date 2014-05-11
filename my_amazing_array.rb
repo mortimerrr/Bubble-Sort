@@ -1,20 +1,15 @@
 require 'pry'
 
 class Array
-  # Calculate the total sum of all the elements in this array (assuming they are
-  # numeric)
-  #
+  
+  # Calculate the total sum of all the elements in this array (assuming they are numeric)
   def sum
     # puts self.join(",")
-    stack = []
-    x = 0
-    y = 1
-    while x < (self.length - 1)
-      stack.push(self[0] + self[1])
+    sum = 0
+    self.each do |number|
+      sum += number
     end
-
-
-
+    sum
   end
 
   # Returns the prime numbers in this array
