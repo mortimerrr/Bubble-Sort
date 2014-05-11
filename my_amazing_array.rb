@@ -21,17 +21,19 @@ class Array
     # if the remainder is 0 in all cases that is a prime number
     # if there is a case where the remainder is not 0, remove that number from the array
     # return the new/modified array
-
+    not_primes = []
     self.each do |x|
-      
+      if x < 2 || (x % 2 == 0)
+        not_primes.push(x)
+      end
     end
+
+    numbers_left = self - not_primes
 
 
   end
 
-  # Examine each pair in myself and swap them until all my
-  # elements are in order
-  #
+  # Examine each pair in myself and swap them until all my elements are in order
   def bubble_sort
     stack = []
     x = 0
@@ -54,9 +56,9 @@ class Array
           x += 1
           y += 1
           number_of_swaps += 1  
-        else                  # THIS IS NOT NEEDED / AVOID REPEATING LINES 50/51 AND 55/56!!!
+        else             
           # otherwise move on
-          x += 1    # PUT THESE OUTSIDE OF THE LOOP!!!
+          x += 1    
           y += 1
         end 
         # puts self.join(",")
