@@ -6,11 +6,32 @@ class Array
   #
   def sum
     # puts self.join(",")
+    stack = []
+    x = 0
+    y = 1
+    while x < (self.length - 1)
+      stack.push(self[0] + self[1])
+    end
+
+
+
   end
 
   # Returns the prime numbers in this array
   def primes
-    # puts self.join(",")
+    # remove any number smaller than 2 from the array (1 is not a prime number)
+    # remove all the even numbers from the array (even numbers are not primes)
+    # iterate through each number (that is left in the array) and try to divide it with all
+    # the preceding numbers in the array (use the modulo)
+    # if the remainder is 0 in all cases that is a prime number
+    # if there is a case where the remainder is not 0, remove that number from the array
+    # return the new/modified array
+
+    self.each do |x|
+      
+    end
+
+
   end
 
   # Examine each pair in myself and swap them until all my
@@ -38,23 +59,16 @@ class Array
           x += 1
           y += 1
           number_of_swaps += 1  
-        else
+        else                  # THIS IS NOT NEEDED / AVOID REPEATING LINES 50/51 AND 55/56!!!
           # otherwise move on
-          x += 1
+          x += 1    # PUT THESE OUTSIDE OF THE LOOP!!!
           y += 1
         end 
-        
         # puts self.join(",")
-
       end
-
         # puts "we've reached the end of the array"
-
     end
-
     return self
-
   end
-
 end
 

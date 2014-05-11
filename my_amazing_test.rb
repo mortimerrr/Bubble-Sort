@@ -1,4 +1,4 @@
-  require 'test/unit'
+require 'test/unit'
 require 'pry'
 require_relative 'my_amazing_array'
 
