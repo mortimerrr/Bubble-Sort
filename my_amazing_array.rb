@@ -16,14 +16,6 @@ class Array
   def primes
     # remove any number smaller than 2 from the array (1 is not a prime number)
     # remove all the even numbers from the array (even numbers are not primes)
-    self.each do |number|
-      if number < 2
-        self.delete(number)
-      elsif number > 2 && (number % 2 == 0) # 2 is a prime number
-        self.delete(number)
-      end
-      self                         
-    end
     # iterate through each number (that is left in the array) and try to divide it with all
     # the preceding numbers in the array (use the modulo)
     # if the remainder is 0 in all cases that is a prime number
@@ -31,15 +23,17 @@ class Array
     self.each_with_index do |number, index|
       elements_to_check = self[0..index-1]
       elements_to_check.each do |n|
-        if number % n == 0
+        if number < 2
           self.delete(number)
-
+        elsif number > 2 && (number % 2 == 0) # 2 is a prime number
+          self.delete(number)
+        elsif number > 2 && (number % n == 0)
+          self.delete(number)
         end
       end
-
       # return the new/modified array
       self
-    end
+    end      
 
   end
 
