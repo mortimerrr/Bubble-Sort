@@ -21,14 +21,17 @@ class Array
     # if the remainder is 0 in all cases that is a prime number
     # if there is a case where the remainder is not 0, remove that number from the array
     self.each_with_index do |number, index|
-      elements_to_check = self[0..index-1]
-      elements_to_check.each do |n|
-        if number < 2
-          self.delete(number)
-        elsif number > 2 && (number % 2 == 0) # 2 is a prime number
-          self.delete(number)
-        elsif number > 2 && (number % n == 0)
-          self.delete(number)
+      if number < 2
+        self.delete(number)
+      elsif number > 2 && (number % 2 == 0) # 2 is a prime number
+        self.delete(number)
+      else 
+        elements_to_check = self[0..index-1]
+        binding.pry
+        elements_to_check.each do |n|
+          if number > 2 && (number % n == 0)   
+            self.delete(number)
+          end
         end
       end
       # return the new/modified array
