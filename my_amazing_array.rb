@@ -14,29 +14,32 @@ class Array
 
   # Returns the prime numbers in this array
   def primes
-    # remove any number smaller than 2 from the array (1 is not a prime number)
-    # remove all the even numbers from the array (even numbers are not primes)
-    # iterate through each number (that is left in the array) and try to divide it with all
-    # the preceding numbers in the array (use the modulo)
-    # if the remainder is 0 in all cases that is a prime number
-    # if there is a case where the remainder is not 0, remove that number from the array
-    self.each_with_index do |number, index|
-      if number < 2
-        self.delete(number)
-      elsif number > 2 && (number % 2 == 0) # 2 is a prime number
-        self.delete(number)
-      else 
-        elements_to_check = self[0..index-1]
-        binding.pry
-        elements_to_check.each do |n|
-          if number > 2 && (number % n == 0)   
-            self.delete(number)
-          end
-        end
+    primes = []
+    self.each do |x|
+
+      if x == 1
+        next
       end
-      # return the new/modified array
-      self
-    end      
+
+      if x == 2
+        primes.push(x)
+        next
+      end
+
+      prime = true
+
+      primes.each do |p| 
+        if x > 2 && x % p == 0
+          prime = false   
+        end
+      end  
+
+      if prime == true
+        primes.push(x)
+      end
+
+    end  
+    primes
 
   end
 
